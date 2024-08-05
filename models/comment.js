@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   Comment.init(
     {
       content: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       post_id: {

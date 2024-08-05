@@ -41,7 +41,7 @@ const getAllUsers = {
       ],
     });
 
-    return users.rows;
+    return users;
   },
 };
 

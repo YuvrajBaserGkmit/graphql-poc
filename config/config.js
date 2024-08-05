@@ -1,4 +1,4 @@
-require('dotenv').config({ path: __dirname + '/../.env' });
+require("dotenv").config({ path: __dirname + "/../.env" });
 
 const {
   DB_USERNAME,
@@ -20,9 +20,9 @@ module.exports = {
     dialect: DB_DIALECT,
     define: {
       underscored: true,
-      createdAt: 'created_at',
-      updatedAt: 'updated_at',
-      deletedAt: 'deleted_at',
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+      deletedAt: "deleted_at",
     },
   },
   test: {
@@ -34,9 +34,9 @@ module.exports = {
     dialect: DB_DIALECT,
     define: {
       underscored: true,
-      createdAt: 'created_at',
-      updatedAt: 'updated_at',
-      deletedAt: 'deleted_at',
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+      deletedAt: "deleted_at",
     },
   },
   production: {
@@ -48,9 +48,9 @@ module.exports = {
     dialect: DB_DIALECT,
     define: {
       underscored: true,
-      createdAt: 'created_at',
-      updatedAt: 'updated_at',
-      deletedAt: 'deleted_at',
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+      deletedAt: "deleted_at",
     },
   },
 };

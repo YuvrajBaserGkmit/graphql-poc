@@ -28,7 +28,7 @@ const updatePostById = {
     if (!post) {
       throw new Error("Post not found");
     }
-    const updatedPost = await post.update(args, {
+    await post.update(args, {
       where: {
         id: args.id,
       },

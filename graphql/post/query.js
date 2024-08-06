@@ -9,7 +9,7 @@ const getPost = {
     id: { type: GraphQLID },
   },
   resolve: async (parent, args) => {
-    return Post.findByPk(args.id);
+    return Post.findByPk(args.id, { include: "comments" });
   },
 };
 
@@ -17,7 +17,7 @@ const getPost = {
 const getAllPosts = {
   type: GraphQLList(PostType),
   resolve: async (parent, args) => {
-    const posts = await Post.findAll();
+    const posts = await Post.findAll({ include: "comments" });
     return posts;
   },
 };

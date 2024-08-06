@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.Post, {
         foreignKey: "post_id",
+        as: "post",
       });
     }
   }

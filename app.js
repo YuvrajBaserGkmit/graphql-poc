@@ -7,8 +7,10 @@ const { commonErrorHandler } = require("./helpers/common-function.helper");
 const routes = require("./routes");
 const userQueries = require("./graphql/user/query");
 const postQueries = require("./graphql/post/query");
+const commentQueries = require("./graphql/comment/query");
 const userMutations = require("./graphql/user/mutations");
 const postMutations = require("./graphql/post/mutations");
+const commentMutations = require("./graphql/comment/mutations");
 
 const app = express();
 app.use(express.json());
@@ -26,6 +28,7 @@ const query = new GraphQLObjectType({
   fields: {
     ...userQueries,
     ...postQueries,
+    ...commentQueries,
   },
 });
 
@@ -34,6 +37,7 @@ const mutation = new GraphQLObjectType({
   fields: {
     ...userMutations,
     ...postMutations,
+    ...commentMutations,
   },
 });
 

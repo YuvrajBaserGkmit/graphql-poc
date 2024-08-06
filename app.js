@@ -1,7 +1,7 @@
 const express = require("express");
 const compression = require("compression");
 const { GraphQLObjectType, GraphQLSchema } = require("graphql");
-const { graphqlHTTP } = require("express-graphql");
+const { createYoga } = require("graphql-yoga");
 
 const { commonErrorHandler } = require("./helpers/common-function.helper");
 const routes = require("./routes");
@@ -39,16 +39,14 @@ const mutation = new GraphQLObjectType({
 
 routes.registerRoutes(app);
 
-app.use(
-  "/graphql",
-  graphqlHTTP({
-    schema: new GraphQLSchema({
-      query,
-      mutation,
-    }),
-    graphiql: true,
-  })
-);
+const yoga = createYoga({
+  schema: new GraphQLSchema({
+    query,
+    mutation,
+  }),
+  graphiql: true,
+});
+app.use("/graphql", yoga);
 
 // 404 Error Handling
 app.use((req, res) => {

@@ -4,7 +4,7 @@ const {
   GraphQLInt,
   GraphQLObjectType,
 } = require("graphql");
-const { User, Post } = require("./../../models");
+const { User, Post, Comment } = require("./../../models");
 const UserType = require("./typeDef");
 
 // Get user by id
@@ -37,6 +37,12 @@ const getAllUsers = {
         {
           model: Post,
           as: "posts",
+          include: [
+            {
+              model: Comment,
+              as: "comments",
+            },
+          ],
         },
       ],
     });
